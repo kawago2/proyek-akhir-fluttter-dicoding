@@ -4,62 +4,8 @@ import 'image_list.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'list_page/list_page.dart';
 
-class FirstPage extends StatefulWidget {
+class FirstPage extends StatelessWidget {
   const FirstPage({Key? key}) : super(key: key);
-
-  @override
-  State<FirstPage> createState() => _FirstPageState();
-}
-
-class _FirstPageState extends State<FirstPage> {
-  Widget _kategoriWidget({
-    required String text,
-    String subtext = '',
-    required final GestureTapCallback press,
-  }) {
-    final double categoryHeight =
-        MediaQuery.of(context).size.height * 0.4 - 150;
-    final double categoryWidth = MediaQuery.of(context).size.width * 0.6 - 75;
-    return GestureDetector(
-      onTap: press,
-      child: Container(
-        width: categoryWidth,
-        margin: const EdgeInsets.symmetric(
-          vertical: 10,
-          horizontal: 10,
-        ),
-        height: categoryHeight,
-        decoration: BoxDecoration(
-            color: secColor, borderRadius: BorderRadius.circular(20)),
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                text,
-                style: TextStyle(
-                  fontSize: 25,
-                  color: mainColor,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                subtext,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: mainColor,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -97,11 +43,6 @@ class _FirstPageState extends State<FirstPage> {
                   autoPlay: true,
                   enlargeCenterPage: true,
                   scrollDirection: Axis.horizontal,
-                  onPageChanged: (index, reason) {
-                    setState(
-                      () {},
-                    );
-                  },
                 ),
                 items: imagesList
                     .map(
@@ -135,22 +76,94 @@ class _FirstPageState extends State<FirstPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _kategoriWidget(text: 'Medical', press: () {}),
-                  _kategoriWidget(
-                      text: 'Food',
-                      press: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const ListPage()));
-                      }),
+                  KategoriWidget(
+                    text: 'Medical',
+                    press: () {},
+                    subtext: '',
+                  ),
+                  KategoriWidget(
+                    text: 'Food',
+                    press: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const ListPage()));
+                    },
+                    subtext: '',
+                  ),
                 ],
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _kategoriWidget(text: 'Toy', press: () {}),
-                  _kategoriWidget(text: 'Others', press: () {}),
+                  KategoriWidget(
+                    text: 'Toy',
+                    press: () {},
+                    subtext: '',
+                  ),
+                  KategoriWidget(
+                    text: 'Others',
+                    press: () {},
+                    subtext: '',
+                  ),
                 ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class KategoriWidget extends StatelessWidget {
+  final String text;
+  final String subtext;
+  final GestureTapCallback press;
+  const KategoriWidget({
+    Key? key,
+    required this.text,
+    required this.subtext,
+    required this.press,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final double categoryHeight =
+        MediaQuery.of(context).size.height * 0.4 - 150;
+    final double categoryWidth = MediaQuery.of(context).size.width * 0.6 - 75;
+    return GestureDetector(
+      onTap: press,
+      child: Container(
+        width: categoryWidth,
+        margin: const EdgeInsets.symmetric(
+          vertical: 10,
+          horizontal: 10,
+        ),
+        height: categoryHeight,
+        decoration: BoxDecoration(
+            color: secColor, borderRadius: BorderRadius.circular(20)),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                text,
+                style: TextStyle(
+                  fontSize: 25,
+                  color: mainColor,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                subtext,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: mainColor,
+                ),
               ),
             ],
           ),

@@ -5,14 +5,9 @@ import 'package:proyek_akhir/models/produk.dart';
 import 'package:proyek_akhir/sized_config.dart';
 import 'crousel_slider.dart';
 
-class DetailsScreen extends StatefulWidget {
+class DetailsScreen extends StatelessWidget {
   const DetailsScreen({Key? key}) : super(key: key);
 
-  @override
-  State<DetailsScreen> createState() => _DetailsScreenState();
-}
-
-class _DetailsScreenState extends State<DetailsScreen> {
   @override
   Widget build(BuildContext context) {
     final ProdukDetailsArgument arguments =
@@ -38,27 +33,20 @@ class ProdukDetailsArgument {
   ProdukDetailsArgument({required this.product});
 }
 
-class Body extends StatefulWidget {
+class Body extends StatelessWidget {
   final Product product;
-
   const Body({Key? key, required this.product}) : super(key: key);
-
-  @override
-  State<Body> createState() => _BodyState();
-}
-
-class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        CrouselSlider(product: widget.product),
+        CrouselSlider(product: product),
         CountainerBody(
           color: secColor,
           child: DeskripsiDetail(
-            product: widget.product,
+            product: product,
             press: () {},
           ),
         ),
@@ -153,175 +141,3 @@ class CountainerBody extends StatelessWidget {
     );
   }
 }
-
-
-
-/*
-Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Container(
-              width: MyUtility(context).width * 0.1,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10)),
-              child: Center(
-                  child: Text(
-                "1/${product.images.length}",
-                style: TextStyle(color: Colors.black12),
-              )),
-            ),
-          ],
-        ),
-
-                Stack(
-          children: <Widget>[
-            AspectRatio(
-              aspectRatio: 1,
-              child: 
-            ),
-            
-          ],
-        )
-ListView.builder(
-                
-                scrollDirection: Axis.horizontal,
-                itemCount: product.images.length,
-                itemBuilder: (context, index) {
-                  return Stack(
-                    children: <Widget>[
-                      Container(
-                        child: Image.asset(
-                          product.images[index],
-                          fit: BoxFit.fill,
-                          scale: 2,
-                        ),
-                      ),
-                      Positioned(
-                        bottom: 5,
-                        right: 5,
-                        child: Container(
-                          width: MyUtility(context).width * 0.1,
-                          decoration: BoxDecoration(
-                              color: Colors.white30,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Center(
-                              child: Text(
-                            "${index + 1}/${product.images.length}",
-                            style: TextStyle(color: Colors.black45),
-                          )),
-                        ),
-                      ),
-                    ],
-                  );
-                },
-              ),
-        */
-
-
- /*
-        CarouselSlider(
-          options: CarouselOptions(
-            enableInfiniteScroll : false,
-            aspectRatio: 5 / 4,
-            viewportFraction: 1.05,
-            autoPlay: false,
-            enlargeCenterPage: true,
-            scrollDirection: Axis.horizontal,
-            onPageChanged: (index, reason) {
-              setState(
-                () {},
-              );
-            },
-          ),
-          items: product.images
-              .map(
-                (item) => Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Card(
-                    elevation: 6.0,
-                    shadowColor: mainColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Stack(
-                        children: <Widget>[
-                          Image.asset(
-                            item,
-                            fit: BoxFit.fill,
-                            height: double.infinity,
-                            width: double.infinity,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              )
-              .toList(),
-        ),
-
-        */
-
-
-        /*
-         CarouselSlider(
-              options: CarouselOptions(
-                enableInfiniteScroll: false,
-                aspectRatio: 5 / 4,
-                viewportFraction: 1.05,
-                autoPlay: false,
-                scrollDirection: Axis.horizontal,
-                onPageChanged: (index, reason) {
-                  setState(() {});
-                },
-              ),
-              items: product.images
-                  .map(
-                    (item) => Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Card(
-                        elevation: 6.0,
-                        shadowColor: mainColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Stack(
-                            children: <Widget>[
-                              Image.asset(
-                                item,
-                                fit: BoxFit.fill,
-                                height: double.infinity,
-                                width: double.infinity,
-                              ),
-                              Positioned(
-                                  bottom: 10,
-                                  right: 10,
-                                  child: Container(
-                                    width: MyUtility(context).width * 0.1,
-                                    decoration: BoxDecoration(
-                                        color: Colors.white30,
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    child: Center(
-                                        child: Text(
-                                      "${item.indexOf(item)}/${product.images.length}",
-                                      style: const TextStyle(
-                                          color: Colors.black45),
-                                    )),
-                                  ))
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
-                  .toList(),
-            ),
-
-            */
-          

@@ -5,22 +5,14 @@ import '../order_page/order_page.dart';
 import 'first_page.dart';
 import 'package:flutter/cupertino.dart';
 
-class CupertinoHomepage extends StatefulWidget {
+class CupertinoHomepage extends StatelessWidget {
   const CupertinoHomepage({Key? key}) : super(key: key);
 
   @override
-  State<CupertinoHomepage> createState() => _CupertinoHomepageState();
-}
-
-class _CupertinoHomepageState extends State<CupertinoHomepage> {
-  @override
   Widget build(BuildContext context) {
-    final double height =
-        MediaQuery.of(context).size.height * 0.08;
-
+    final double height = MediaQuery.of(context).size.height * 0.08;
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
-       
         height: height,
         backgroundColor: mainColor,
         activeColor: secColor,
@@ -70,6 +62,8 @@ class _CupertinoHomepageState extends State<CupertinoHomepage> {
     );
   }
 }
+
+
 
 /*
 class HomePage extends StatefulWidget {

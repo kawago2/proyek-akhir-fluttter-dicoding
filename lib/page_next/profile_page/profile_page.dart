@@ -2,14 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:proyek_akhir/constant.dart';
 import 'package:proyek_akhir/page_awal/login_page.dart';
 
-class ThreePage extends StatefulWidget {
+class ThreePage extends StatelessWidget {
   const ThreePage({Key? key}) : super(key: key);
 
-  @override
-  State<ThreePage> createState() => _ThreePageState();
-}
-
-class _ThreePageState extends State<ThreePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,19 +79,19 @@ class _ThreePageState extends State<ThreePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            _listBodyProfile(text: 'Privacy', onTap: () {}),
+            ListBodyProfile(text: 'Privacy', onTap: () {}),
             const Divider(height: 1, thickness: 1),
-            _listBodyProfile(text: 'History', onTap: () {}),
+            ListBodyProfile(text: 'History', onTap: () {}),
             const Divider(height: 1, thickness: 1),
-            _listBodyProfile(text: 'Shopping List', onTap: () {}),
+            ListBodyProfile(text: 'Shopping List', onTap: () {}),
             const Divider(height: 1, thickness: 1),
-            _listBodyProfile(text: 'Voucer', onTap: () {}),
+            ListBodyProfile(text: 'Voucer', onTap: () {}),
             const Divider(height: 1, thickness: 1),
-            _listBodyProfile(text: 'Whistlist', onTap: () {}),
+            ListBodyProfile(text: 'Whistlist', onTap: () {}),
             const Divider(height: 1, thickness: 1),
-            _listBodyProfile(text: 'About Us', onTap: () {}),
+            ListBodyProfile(text: 'About Us', onTap: () {}),
             const Divider(height: 1, thickness: 1),
-            _listBodyProfile(
+            ListBodyProfile(
               text: 'Logout',
               onTap: () {
                 Navigator.of(context, rootNavigator: true).pushReplacement(
@@ -105,7 +100,7 @@ class _ThreePageState extends State<ThreePage> {
             ),
             const Divider(height: 1, thickness: 1),
             const SizedBox(height: 60),
-            _listBodyProfile(text: 'kawago lop anya', onTap: () {}),
+            ListBodyProfile(text: 'kawago lop anya', onTap: () {}),
           ],
         ),
       ),
@@ -113,18 +108,26 @@ class _ThreePageState extends State<ThreePage> {
   }
 }
 
-Widget _listBodyProfile({
-  required String text,
-  required VoidCallback onTap,
-}) {
-  return ListTile(
-    onTap: onTap,
-    title: Text(
-      text,
-      style: const TextStyle(
-        color: Colors.black,
-        fontSize: 16,
+class ListBodyProfile extends StatelessWidget {
+  final String text;
+  final VoidCallback onTap;
+  const ListBodyProfile({
+    Key? key,
+    required this.text,
+    required this.onTap,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      onTap: onTap,
+      title: Text(
+        text,
+        style: const TextStyle(
+          color: Colors.black,
+          fontSize: 16,
+        ),
       ),
-    ),
-  );
+    );
+  }
 }

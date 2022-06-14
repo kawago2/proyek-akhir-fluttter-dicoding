@@ -5,14 +5,9 @@ import '../builder.dart';
 import 'login_page.dart';
 import 'package:proyek_akhir/constant.dart';
 
-class SignUpPage extends StatefulWidget {
+class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
-  @override
-  State<SignUpPage> createState() => _SignUpPageState();
-}
-
-class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -153,3 +148,6 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 }
+
+
+

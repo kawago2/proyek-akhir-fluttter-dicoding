@@ -4,14 +4,9 @@ import 'package:proyek_akhir/models/produk.dart';
 import 'package:proyek_akhir/page_next/home_page/details_screen/details_screen.dart';
 import 'package:proyek_akhir/sized_config.dart';
 
-class ListPage extends StatefulWidget {
+class ListPage extends StatelessWidget {
   const ListPage({Key? key}) : super(key: key);
 
-  @override
-  State<ListPage> createState() => _ListPageState();
-}
-
-class _ListPageState extends State<ListPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
