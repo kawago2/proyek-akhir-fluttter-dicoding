@@ -9,7 +9,7 @@ class TermsPolicy extends StatefulWidget {
 }
 
 class _TermsPolicyState extends State<TermsPolicy> {
-  bool? isChecked = false;
+  bool? _isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -18,10 +18,10 @@ class _TermsPolicyState extends State<TermsPolicy> {
         Row(
           children: [
             Checkbox(
-              value: isChecked,
+              value: _isChecked,
               onChanged: (value) {
                 setState(() {
-                  isChecked = value;
+                  _isChecked = value;
                 });
               },
               checkColor: mainColor,
@@ -29,26 +29,27 @@ class _TermsPolicyState extends State<TermsPolicy> {
             ),
             Text.rich(
               TextSpan(
-                  text: "I agree with ",
-                  style: TextStyle(
-                      color: quadColor.withOpacity(0.8),
-                      fontSize: 16,
-                      fontFamily: 'Roboto'),
-                  children: [
-                    TextSpan(
-                        text: "Terms ",
-                        style: TextStyle(
-                            color: mainColor,
-                            fontSize: 16,
-                            fontFamily: 'Roboto')),
-                    const TextSpan(text: "and "),
-                    TextSpan(
-                        text: "Policy",
-                        style: TextStyle(
-                            color: mainColor,
-                            fontSize: 16,
-                            fontFamily: 'Roboto')),
-                  ]),
+                text: "I agree with ",
+                style: TextStyle(
+                    color: quadColor.withOpacity(0.8),
+                    fontSize: 16,
+                    fontFamily: 'Roboto'),
+                children: [
+                  TextSpan(
+                      text: "Terms ",
+                      style: TextStyle(
+                          color: mainColor,
+                          fontSize: 16,
+                          fontFamily: 'Roboto')),
+                  const TextSpan(text: "and "),
+                  TextSpan(
+                      text: "Policy",
+                      style: TextStyle(
+                          color: mainColor,
+                          fontSize: 16,
+                          fontFamily: 'Roboto')),
+                ],
+              ),
             )
           ],
         ),

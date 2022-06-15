@@ -6,7 +6,6 @@ import '../builder.dart';
 
 import 'package:proyek_akhir/constant.dart';
 
-
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -142,17 +141,18 @@ class LoginPage extends StatelessWidget {
                     ),
                     const SizedBox(height: 30),
                     TextInkwellBuilder(
-                        context: context,
-                        atext: "Don't have an account? ",
-                        acolor: Colors.white,
-                        btext: "Sign Up.",
-                        bcolor: mainColor,
-                        press: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const SignUpPage()));
-                        }),
+                      context: context,
+                      atext: "Don't have an account? ",
+                      acolor: Colors.white,
+                      btext: "Sign Up.",
+                      bcolor: mainColor,
+                      press: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SignUpPage()));
+                      },
+                    ),
                   ],
                 ),
               ),

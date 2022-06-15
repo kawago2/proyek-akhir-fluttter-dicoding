@@ -33,10 +33,6 @@ class ListPage extends StatelessWidget {
                       ),
                     )
                   },
-/*
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => DetailsScreen())),
-              */
                 ),
               ),
               const SizedBox(width: 30),
